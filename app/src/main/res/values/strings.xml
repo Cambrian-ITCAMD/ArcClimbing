@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ArcClimbing</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="user_profile">Profile</string>
+</resources>
