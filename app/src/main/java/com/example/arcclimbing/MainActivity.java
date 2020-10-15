@@ -11,10 +11,15 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.arcclimbing.adapter.RouteAdapter;
 import com.example.arcclimbing.databinding.ActivityMainBinding;
+import com.example.arcclimbing.model.Route;
 import com.example.arcclimbing.viewmodel.MainActivityViewModel;
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,10 +27,15 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int RC_SIGN_IN = 1;
+    private static final int LIMIT = 25;
+
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
 
-    private static final int RC_SIGN_IN = 1;
+    private FirebaseFirestore firestore;
+    private Query query;
+    private RouteAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +45,32 @@ public class MainActivity extends AppCompatActivity {
 
         // View model
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+
+        // Enable Firestore logging
+        FirebaseFirestore.setLoggingEnabled(true);
+
+        //Initialize Firestore
+        initFirestore();
+
+        //Setup Recyclerview
+        setUpRecyclerView();
+    }
+
+    private void setUpRecyclerView() {
+        FirestoreRecyclerOptions<Route> options = new FirestoreRecyclerOptions.Builder<Route>()
+                .setQuery(query, Route.class)
+                .build();
+
+        adapter = new RouteAdapter(options);
+        binding.routeRecyclerView.setAdapter(adapter);
+    }
+
+    private void initFirestore() {
+        firestore = FirebaseFirestore.getInstance();
+
+        query = firestore.collection("routes")
+                .orderBy("grade",Query.Direction.DESCENDING)
+                .limit(LIMIT);
     }
 
     @Override
@@ -45,6 +81,18 @@ public class MainActivity extends AppCompatActivity {
         if (shouldStartSignIn()) {
             startSignIn();
             return;
+        }
+
+        if (adapter != null) {
+            adapter.startListening();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (adapter != null) {
+            adapter.stopListening();
         }
     }
 

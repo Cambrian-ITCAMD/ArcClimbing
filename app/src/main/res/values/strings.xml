@@ -2,4 +2,6 @@
     <string name="app_name">ArcClimbing</string>
     <string name="sign_out">Sign Out</string>
     <string name="user_profile">Profile</string>
+    <string name="bar_number_title">Bar No:</string>
+    <string name="grade">Difficulty:</string>
 </resources>
