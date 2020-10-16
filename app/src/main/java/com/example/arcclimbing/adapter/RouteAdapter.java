@@ -15,36 +15,52 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class RouteAdapter extends FirestoreRecyclerAdapter<Route, RouteAdapter.RouteViewHolder> {
 
-    public RouteAdapter(@NonNull FirestoreRecyclerOptions<Route> options) {
+    private OnRouteClickListener listener;
+
+    public RouteAdapter(@NonNull FirestoreRecyclerOptions<Route> options, OnRouteClickListener listener) {
         super(options);
+        this.listener = listener;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull RouteViewHolder holder, int position, @NonNull Route model) {
-        holder.routeName.setText(model.getName());
-        holder.barNumberVal.setText(model.getBarNumber());
-        holder.gradeVal.setText(model.getGrade());
+        holder.bind(model, listener);
     }
 
     @NonNull
     @Override
     public RouteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_route_list_item,
-                parent, false);
-        return new RouteViewHolder(view);
+        return RouteViewHolder.from(parent);
     }
 
-    public class RouteViewHolder extends RecyclerView.ViewHolder{
+    public interface OnRouteClickListener {
+        void onRouteClick(Route route);
+    }
+
+    public static class RouteViewHolder extends RecyclerView.ViewHolder{
 
         TextView routeName;
         TextView barNumberVal;
         TextView gradeVal;
 
-        public RouteViewHolder(@NonNull View itemView) {
+        private RouteViewHolder(@NonNull View itemView) {
             super(itemView);
             routeName = itemView.findViewById(R.id.routeName);
             barNumberVal = itemView.findViewById(R.id.barNumberVal);
             gradeVal = itemView.findViewById(R.id.gradeVal);
+        }
+
+        public static RouteViewHolder from(ViewGroup parent) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_route_list_item, parent, false);
+            return new RouteViewHolder(view);
+        }
+
+        public void bind(Route route, OnRouteClickListener listener) {
+            routeName.setText(route.getName());
+            barNumberVal.setText(route.getBarNumber());
+            gradeVal.setText(route.getGrade());
+
+            routeName.setOnClickListener(view -> listener.onRouteClick(route));
         }
     }
 }

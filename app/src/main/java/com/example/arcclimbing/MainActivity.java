@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.arcclimbing.adapter.RouteAdapter;
 import com.example.arcclimbing.databinding.ActivityMainBinding;
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 .setQuery(query, Route.class)
                 .build();
 
-        adapter = new RouteAdapter(options);
+        adapter = new RouteAdapter(options, route -> Toast.makeText(this, "I want to climb " + route.getName(),
+                Toast.LENGTH_SHORT).show());
         binding.routeRecyclerView.setAdapter(adapter);
     }
 
