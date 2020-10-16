@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arcclimbing.R;
+import com.example.arcclimbing.databinding.ViewRouteListItemBinding;
 import com.example.arcclimbing.model.Route;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -39,28 +40,25 @@ public class RouteAdapter extends FirestoreRecyclerAdapter<Route, RouteAdapter.R
 
     public static class RouteViewHolder extends RecyclerView.ViewHolder{
 
-        TextView routeName;
-        TextView barNumberVal;
-        TextView gradeVal;
+        private ViewRouteListItemBinding binding;
 
-        private RouteViewHolder(@NonNull View itemView) {
-            super(itemView);
-            routeName = itemView.findViewById(R.id.routeName);
-            barNumberVal = itemView.findViewById(R.id.barNumberVal);
-            gradeVal = itemView.findViewById(R.id.gradeVal);
+        private RouteViewHolder(@NonNull ViewRouteListItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
 
         public static RouteViewHolder from(ViewGroup parent) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_route_list_item, parent, false);
-            return new RouteViewHolder(view);
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            ViewRouteListItemBinding binding = ViewRouteListItemBinding.inflate(inflater, parent, false);
+            return new RouteViewHolder(binding);
         }
 
         public void bind(Route route, OnRouteClickListener listener) {
-            routeName.setText(route.getName());
-            barNumberVal.setText(route.getBarNumber());
-            gradeVal.setText(route.getGrade());
+            binding.routeName.setText(route.getName());
+            binding.barNumberVal.setText(route.getBarNumber());
+            binding.gradeVal.setText(route.getGrade());
 
-            routeName.setOnClickListener(view -> listener.onRouteClick(route));
+            binding.getRoot().setOnClickListener(view -> listener.onRouteClick(route));
         }
     }
 }
