@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.arcclimbing.adapter.RouteAdapter;
 import com.example.arcclimbing.databinding.ActivityMainBinding;
 import com.example.arcclimbing.model.Route;
+import com.example.arcclimbing.utils.ArcClimbingConst;
 import com.example.arcclimbing.viewmodel.MainActivityViewModel;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -62,8 +63,14 @@ public class MainActivity extends AppCompatActivity {
                 .setQuery(query, Route.class)
                 .build();
 
-        adapter = new RouteAdapter(options, route -> Toast.makeText(this, "I want to climb " + route.getName(),
-                Toast.LENGTH_SHORT).show());
+        adapter = new RouteAdapter(options, route -> {
+//            Toast.makeText(this, "I want to climb " + route.getDocumentId(),
+//                    Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, RouteDetailsActivity.class);
+            intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, route);
+            startActivity(intent);
+        });
         binding.routeRecyclerView.setAdapter(adapter);
     }
 

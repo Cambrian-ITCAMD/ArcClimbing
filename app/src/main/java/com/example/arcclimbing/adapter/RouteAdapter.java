@@ -25,6 +25,7 @@ public class RouteAdapter extends FirestoreRecyclerAdapter<Route, RouteAdapter.R
 
     @Override
     protected void onBindViewHolder(@NonNull RouteViewHolder holder, int position, @NonNull Route model) {
+        model.setDocumentId(getSnapshots().getSnapshot(position).getId());
         holder.bind(model, listener);
     }
 
@@ -54,9 +55,9 @@ public class RouteAdapter extends FirestoreRecyclerAdapter<Route, RouteAdapter.R
         }
 
         public void bind(Route route, OnRouteClickListener listener) {
-            binding.routeName.setText(route.getName());
-            binding.barNumberVal.setText(route.getBarNumber());
-            binding.gradeVal.setText(route.getGrade());
+            binding.itemName.setText(route.getName());
+            binding.itemBarNumberVal.setText(route.getBarNumber());
+            binding.itemGradeVal.setText(route.getGrade());
 
             binding.getRoot().setOnClickListener(view -> listener.onRouteClick(route));
         }

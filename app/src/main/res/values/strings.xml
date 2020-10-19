@@ -4,4 +4,7 @@
     <string name="user_profile">Profile</string>
     <string name="bar_number_title">Bar No:</string>
     <string name="grade">Difficulty:</string>
+    <string name="colour">Colour:</string>
+    <string name="removed">Stripped:</string>
+    <string name="set">Created:</string>
 </resources>
