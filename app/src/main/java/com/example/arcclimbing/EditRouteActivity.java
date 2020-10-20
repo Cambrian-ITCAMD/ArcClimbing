@@ -3,7 +3,6 @@ package com.example.arcclimbing;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.arcclimbing.databinding.ActivityEditRouteBinding;
@@ -16,7 +15,7 @@ import com.google.firebase.firestore.SetOptions;
 public class EditRouteActivity extends AppCompatActivity {
 
     private ActivityEditRouteBinding binding;
-    Route route;
+    private Route route;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,42 +23,42 @@ public class EditRouteActivity extends AppCompatActivity {
         binding = ActivityEditRouteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        route = (Route) getIntent().getSerializableExtra(ArcClimbingConst.SELECTED_ROUTE);
+        String msg = getIntent().getStringExtra(ArcClimbingConst.ACTIVITY);
 
-        if (route != null) {
+        if (msg.equals(ArcClimbingConst.DETAIL)) {
+            route = (Route) getIntent().getSerializableExtra(ArcClimbingConst.SELECTED_ROUTE);
             popDetails();
         }
 
-        binding.saveRoute.setOnClickListener(view -> updateDetails());
-    }
+        binding.saveRoute.setOnClickListener(view -> {
+            String routeName = binding.editRouteName.getText().toString();
+            String barNumberVal = binding.editBarNumberVal.getText().toString();
+            String gradeVal = binding.editGradeVal.getText().toString();
+            String colourVal = binding.editColourVal.getText().toString();
+            String setter = binding.editRouteSetterName.getText().toString();
+            String status = binding.editRouteStatusVal.getText().toString();
+            String setDate = binding.editSetDateVal.getText().toString();
+            String removedDate = binding.editRemovedDateVal.getText().toString();
 
-    private void updateDetails() {
-        String routeName = binding.editRouteName.getText().toString();
-        String barNumberVal = binding.editBarNumberVal.getText().toString();
-        String gradeVal = binding.editGradeVal.getText().toString();
-        String colourVal = binding.editColourVal.getText().toString();
-        String setter = binding.editRouteSetterName.getText().toString();
-        String status = binding.editRouteStatusVal.getText().toString();
-        String setDate = binding.editSetDateVal.getText().toString();
-        String removedDate = binding.editRemovedDateVal.getText().toString();
+            if (routeName.trim().isEmpty() || barNumberVal.trim().isEmpty() || gradeVal.trim().isEmpty() || colourVal.trim().isEmpty() || setter.trim().isEmpty() || setDate.trim().isEmpty() || status.trim().isEmpty()) {
+                Toast.makeText(this, "Please insert data into all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-        if (route == null && (routeName.trim().isEmpty() || barNumberVal.trim().isEmpty() || gradeVal.trim().isEmpty() || colourVal.trim().isEmpty() || setter.trim().isEmpty() || status.trim().isEmpty())) {
-            Toast.makeText(this, "Please insert data into all fields", Toast.LENGTH_SHORT).show();
-            return;
-        }
+            CollectionReference routeRef = FirebaseFirestore.getInstance()
+                    .collection("routes");
 
-        CollectionReference routeRef = FirebaseFirestore.getInstance()
-                .collection("routes");
-
-        if (route != null) {
-            routeRef.document(route.getDocumentId()).set(new Route(routeName,gradeVal,barNumberVal,colourVal,setter,setDate,removedDate,status), SetOptions.merge());
-        } else if (route == null && removedDate.trim().isEmpty()) {
-            routeRef.add(new Route(routeName,gradeVal,barNumberVal,colourVal,setter,setDate,status));
-        } else {
-            routeRef.add(new Route(routeName,gradeVal,barNumberVal,colourVal,setter,setDate,removedDate,status));
-        }
-        finish();
-
+            if (msg.equals(ArcClimbingConst.MAIN) && removedDate.isEmpty()) {
+                routeRef.add(new Route(routeName, gradeVal, barNumberVal, colourVal, setter, setDate, removedDate, status));
+            } else if (msg.equals(ArcClimbingConst.MAIN)) {
+                routeRef.add(new Route(routeName, gradeVal, barNumberVal, colourVal, setter, setDate, removedDate, status));
+            } else if (msg.equals(ArcClimbingConst.DETAIL) && removedDate.isEmpty()) {
+                routeRef.document(route.getDocumentId()).set(new Route(routeName, gradeVal, barNumberVal, colourVal, setter, setDate, status), SetOptions.merge());
+            } else if (msg.equals(ArcClimbingConst.DETAIL)) {
+                routeRef.document(route.getDocumentId()).set(new Route(routeName, gradeVal, barNumberVal, colourVal, setter, setDate, removedDate, status), SetOptions.merge());
+            }
+            finish();
+        });
     }
 
     private void popDetails() {
@@ -73,3 +72,5 @@ public class EditRouteActivity extends AppCompatActivity {
         binding.editRemovedDateVal.setText(route.getRemovedDate());
     }
 }
+
+

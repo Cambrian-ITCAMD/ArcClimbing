@@ -52,7 +52,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
 
     //Material
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
 
     //RecylcerView and CardView
     implementation "androidx.recyclerview:recyclerview:1.1.0"

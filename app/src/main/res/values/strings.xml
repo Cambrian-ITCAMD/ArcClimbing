@@ -8,7 +8,7 @@
     <string name="removed">Stripped:</string>
     <string name="set">Created:</string>
     <string name="setter">Set By:</string>
-    <string name="status">Current Status:</string>
+    <string name="status">Status:</string>
     <string name="edit">Edit</string>
     <string name="save">Save Changes</string>
     <string name="setterName">Setter Name</string>

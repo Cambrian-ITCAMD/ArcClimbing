@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="mediumPadding">8dp</dimen>
-    <dimen name="mediumText">25sp</dimen>
 </resources>

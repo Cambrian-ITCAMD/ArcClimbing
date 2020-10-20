@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //Add new route
         binding.addRoute.setOnClickListener(view -> {
             Intent intent = new Intent(this, EditRouteActivity.class);
-            intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, new Route());
+            intent.putExtra(ArcClimbingConst.ACTIVITY, ArcClimbingConst.MAIN);
             startActivity(intent);
         });
     }
@@ -85,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
         query = firestore.collection("routes")
-                .orderBy("grade",Query.Direction.DESCENDING)
+                .orderBy("barNumber",Query.Direction.DESCENDING)
+//                .whereEqualTo("status","active")
                 .limit(LIMIT);
     }
 
@@ -122,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_user_profile:
-//                onAddItemsClicked();
                 break;
             case R.id.menu_sign_out:
                 AuthUI.getInstance().signOut(this);

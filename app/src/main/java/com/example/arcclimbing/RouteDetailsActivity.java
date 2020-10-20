@@ -30,6 +30,7 @@ public class RouteDetailsActivity extends AppCompatActivity {
         binding.editRoute.setOnClickListener(view -> {
             Intent intent = new Intent(this, EditRouteActivity.class);
             intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, route);
+            intent.putExtra(ArcClimbingConst.ACTIVITY, ArcClimbingConst.DETAIL);
             startActivity(intent);
         });
     }
@@ -43,11 +44,6 @@ public class RouteDetailsActivity extends AppCompatActivity {
         binding.routeSetterName.setText(route.getSetter());
         binding.routeStatusVal.setText(route.getStatus());
         binding.setDateVal.setText(route.getSetDate());
-
-        if (route.getRemovedDate() == null) {
-            binding.removedDateVal.setVisibility(View.GONE);
-        } else {
-            binding.removedDateVal.setText(route.getRemovedDate());
-        }
+        binding.removedDateVal.setText(route.getRemovedDate());
     }
 }

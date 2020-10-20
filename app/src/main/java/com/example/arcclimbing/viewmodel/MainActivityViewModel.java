@@ -15,7 +15,7 @@ public class MainActivityViewModel extends ViewModel {
     }
 
     public void setIsSigningIn(boolean isSigningIn) {
-        isSigningIn = isSigningIn;
+        this.isSigningIn = isSigningIn;
     }
 
 }
