@@ -31,6 +31,16 @@ public class Route implements Serializable {
         this.status = status;
     }
 
+    public Route(String name, String grade, String barNumber, String colour, String setter, String setDate, String status) {
+        this.name = name;
+        this.grade = grade;
+        this.barNumber = barNumber;
+        this.colour = colour;
+        this.setter = setter;
+        this.setDate = setDate;
+        this.status = status;
+    }
+
     @Exclude
     public String getDocumentId() {
         return documentId;

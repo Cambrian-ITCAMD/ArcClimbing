@@ -3,7 +3,9 @@ package com.example.arcclimbing;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.arcclimbing.databinding.ActivityRouteDetailsBinding;
 import com.example.arcclimbing.model.Route;
@@ -25,6 +27,11 @@ public class RouteDetailsActivity extends AppCompatActivity {
 
         route = (Route) getIntent().getSerializableExtra(ArcClimbingConst.SELECTED_ROUTE);
         populateDetails();
+        binding.editRoute.setOnClickListener(view -> {
+            Intent intent = new Intent(this, EditRouteActivity.class);
+            intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, route);
+            startActivity(intent);
+        });
     }
 
     private void populateDetails() {
@@ -34,8 +41,13 @@ public class RouteDetailsActivity extends AppCompatActivity {
         binding.gradeVal.setText(route.getGrade());
         binding.colourVal.setText(route.getColour());
         binding.routeSetterName.setText(route.getSetter());
-        binding.routeStatus.setText(route.getStatus());
+        binding.routeStatusVal.setText(route.getStatus());
         binding.setDateVal.setText(route.getSetDate());
-        binding.removedDateVal.setText(route.getRemovedDate());
+
+        if (route.getRemovedDate() == null) {
+            binding.removedDateVal.setVisibility(View.GONE);
+        } else {
+            binding.removedDateVal.setText(route.getRemovedDate());
+        }
     }
 }

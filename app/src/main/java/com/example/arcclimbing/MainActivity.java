@@ -56,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Setup Recyclerview
         setUpRecyclerView();
+
+        //Add new route
+        binding.addRoute.setOnClickListener(view -> {
+            Intent intent = new Intent(this, EditRouteActivity.class);
+            intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, new Route());
+            startActivity(intent);
+        });
     }
 
     private void setUpRecyclerView() {

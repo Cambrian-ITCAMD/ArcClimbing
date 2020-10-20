@@ -7,11 +7,12 @@
     android:layout_margin="10dp"
     tools:context=".RouteDetailsActivity">
 
-    <TextView
-        android:id="@+id/routeName"
+    <EditText
+        android:id="@+id/editRouteName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:hint="@string/routeName"
+        android:inputType="text"
         android:textSize="50sp"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,164 +21,169 @@
         android:ellipsize="end"/>
 
     <TextView
-        android:id="@+id/routeSetter"
+        android:id="@+id/editRouteSetter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/setter"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/routeSetterName"
-        app:layout_constraintTop_toBottomOf="@id/routeName" />
+        app:layout_constraintEnd_toStartOf="@id/editRouteSetterName"
+        app:layout_constraintTop_toBottomOf="@id/editRouteName" />
 
-    <TextView
-        android:id="@+id/routeSetterName"
+    <EditText
+        android:id="@+id/editRouteSetterName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:inputType="text"
+        android:hint="@string/setterName"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/routeSetter"
+        app:layout_constraintStart_toEndOf="@id/editRouteSetter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/routeName" />
+        app:layout_constraintTop_toBottomOf="@id/editRouteName" />
 
     <TextView
-        android:id="@+id/routeStatus"
+        android:id="@+id/editRouteStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/status"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/routeStatusVal"
-        app:layout_constraintTop_toBottomOf="@id/routeSetter" />
+        app:layout_constraintEnd_toStartOf="@id/editRouteStatusVal"
+        app:layout_constraintTop_toBottomOf="@id/editRouteSetter" />
 
-    <TextView
-        android:id="@+id/routeStatusVal"
+    <EditText
+        android:id="@+id/editRouteStatusVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:text="Text View"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/routeStatus"
+        app:layout_constraintStart_toEndOf="@id/editRouteStatus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/routeSetterName" />
+        app:layout_constraintTop_toBottomOf="@id/editRouteSetterName" />
 
     <TextView
-        android:id="@+id/barNumber"
+        android:id="@+id/editBarNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/bar_number_title"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/barNumberVal"
-        app:layout_constraintTop_toBottomOf="@id/routeStatus" />
+        app:layout_constraintEnd_toStartOf="@id/editBarNumberVal"
+        app:layout_constraintTop_toBottomOf="@id/editRouteStatus" />
 
-    <TextView
-        android:id="@+id/barNumberVal"
+    <EditText
+        android:id="@+id/editBarNumberVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:inputType="text"
+        android:hint="@string/barNumber"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/barNumber"
+        app:layout_constraintStart_toEndOf="@id/editBarNumber"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/routeStatusVal" />
+        app:layout_constraintTop_toBottomOf="@id/editRouteStatusVal" />
 
     <TextView
-        android:id="@+id/grade"
+        android:id="@+id/editGrade"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/grade"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/gradeVal"
-        app:layout_constraintTop_toBottomOf="@id/barNumber" />
+        app:layout_constraintEnd_toStartOf="@id/editGradeVal"
+        app:layout_constraintTop_toBottomOf="@id/editBarNumber" />
 
-    <TextView
-        android:id="@+id/gradeVal"
+    <EditText
+        android:id="@+id/editGradeVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:inputType="text"
+        android:hint="@string/gradeVal"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/grade"
+        app:layout_constraintStart_toEndOf="@id/editGrade"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barNumberVal" />
+        app:layout_constraintTop_toBottomOf="@id/editBarNumberVal" />
 
     <TextView
-        android:id="@+id/colour"
+        android:id="@+id/editColour"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/colour"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/colourVal"
-        app:layout_constraintTop_toBottomOf="@id/grade" />
+        app:layout_constraintEnd_toStartOf="@id/editColourVal"
+        app:layout_constraintTop_toBottomOf="@id/editGrade" />
 
-    <TextView
-        android:id="@+id/colourVal"
+    <EditText
+        android:id="@+id/editColourVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:inputType="text"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/colour"
+        app:layout_constraintStart_toEndOf="@id/editColour"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gradeVal" />
+        app:layout_constraintTop_toBottomOf="@id/editGradeVal" />
 
     <TextView
-        android:id="@+id/setDate"
+        android:id="@+id/editSetDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/set"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/setDateVal"
-        app:layout_constraintTop_toBottomOf="@id/colour" />
+        app:layout_constraintEnd_toStartOf="@id/editSetDateVal"
+        app:layout_constraintTop_toBottomOf="@id/editColour" />
 
-    <TextView
-        android:id="@+id/setDateVal"
+    <EditText
+        android:id="@+id/editSetDateVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:inputType="text"
+        android:hint="@string/setDate"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/setDate"
+        app:layout_constraintStart_toEndOf="@id/editSetDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/colourVal" />
+        app:layout_constraintTop_toBottomOf="@id/editColourVal" />
 
     <TextView
-        android:id="@+id/removedDate"
+        android:id="@+id/editRemovedDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/removed"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/removedDateVal"
-        app:layout_constraintTop_toBottomOf="@id/setDate" />
+        app:layout_constraintEnd_toStartOf="@id/editRemovedDateVal"
+        app:layout_constraintTop_toBottomOf="@id/editSetDate" />
 
-    <TextView
-        android:id="@+id/removedDateVal"
+    <EditText
+        android:id="@+id/editRemovedDateVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:inputType="text"
+        android:hint="@string/removedDate"
         android:textSize="@dimen/mediumText"
         android:padding="@dimen/mediumPadding"
-        app:layout_constraintStart_toEndOf="@id/removedDate"
+        app:layout_constraintStart_toEndOf="@id/editRemovedDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/setDateVal" />
+        app:layout_constraintTop_toBottomOf="@id/editSetDateVal" />
 
     <Button
-        android:id="@+id/editRoute"
+        android:id="@+id/saveRoute"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/edit"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
