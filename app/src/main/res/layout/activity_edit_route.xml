@@ -65,7 +65,7 @@
         android:id="@+id/editRouteStatusVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Text View"
+        android:hint="@string/routeStatus"
         android:textSize="@dimen/mediumText"
         android:textColor="@color/colorPrimary"
         android:padding="@dimen/mediumPadding"

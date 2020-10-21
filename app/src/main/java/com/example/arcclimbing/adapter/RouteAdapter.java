@@ -56,6 +56,8 @@ public class RouteAdapter extends FirestoreRecyclerAdapter<Route, RouteAdapter.R
 
         public void bind(Route route, OnRouteClickListener listener) {
             binding.itemName.setText(route.getName());
+            binding.itemStatus.setText(route.getStatus());
+            binding.itemColour.setText(route.getColour());
             binding.itemBarNumberVal.setText(route.getBarNumber());
             binding.itemGradeVal.setText(route.getGrade());
 

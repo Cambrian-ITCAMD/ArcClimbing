@@ -3,7 +3,7 @@
     <string name="sign_out">Sign Out</string>
     <string name="user_profile">Profile</string>
     <string name="bar_number_title">Bar No:</string>
-    <string name="grade">Difficulty:</string>
+    <string name="grade">Grade:</string>
     <string name="colour">Colour:</string>
     <string name="removed">Stripped:</string>
     <string name="set">Created:</string>
@@ -17,13 +17,6 @@
     <string name="setDate">Set Date</string>
     <string name="gradeVal">Route\'s Grade</string>
     <string name="barNumber">Bar No.</string>
+    <string name="routeStatus">Status</string>
 
-    <string-array name="status">
-        <item>Route Creation</item>
-        <item>Forerunning</item>
-        <item>Tweaking</item>
-        <item>Active</item>
-        <item>Flagged</item>
-        <item>Stripped</item>
-    </string-array>
 </resources>

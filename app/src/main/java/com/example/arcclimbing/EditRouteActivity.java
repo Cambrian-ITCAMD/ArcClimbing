@@ -3,8 +3,10 @@ package com.example.arcclimbing;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.example.arcclimbing.databinding.ActivityEditRouteBinding;
@@ -13,6 +15,9 @@ import com.example.arcclimbing.utils.ArcClimbingConst;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+
+import java.util.Calendar;
+import java.util.Locale;
 
 public class EditRouteActivity extends AppCompatActivity {
 
@@ -43,6 +48,9 @@ public class EditRouteActivity extends AppCompatActivity {
             popDetails();
         }
 
+        binding.editSetDateVal.setOnClickListener(view -> showDatePickerDialog(ArcClimbingConst.SET_DATE));
+        binding.editRemovedDateVal.setOnClickListener(view -> showDatePickerDialog(ArcClimbingConst.REMOVED_DATE));
+
         binding.saveRoute.setOnClickListener(view -> {
             String routeName = binding.editRouteName.getText().toString();
             String barNumberVal = binding.editBarNumberVal.getText().toString();
@@ -72,6 +80,24 @@ public class EditRouteActivity extends AppCompatActivity {
             }
             finish();
         });
+    }
+
+    private void showDatePickerDialog(String string) {
+        Calendar calendar = Calendar.getInstance(Locale.CANADA);
+        DatePickerDialog setDate = new DatePickerDialog(this,
+                (view, year, month, dayOfMonth) -> {
+                    String date = dayOfMonth + "/" + month + "/" + year;
+                    if (string.equals(ArcClimbingConst.SET_DATE)) {
+                        binding.editSetDateVal.setText(date);
+                    } else {
+                        binding.editRemovedDateVal.setText(date);
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+        );
+        setDate.show();
     }
 
     @Override
