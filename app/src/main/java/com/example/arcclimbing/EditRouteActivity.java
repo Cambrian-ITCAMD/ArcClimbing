@@ -1,8 +1,10 @@
 package com.example.arcclimbing;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.arcclimbing.databinding.ActivityEditRouteBinding;
@@ -27,6 +29,17 @@ public class EditRouteActivity extends AppCompatActivity {
 
         if (msg.equals(ArcClimbingConst.DETAIL)) {
             route = (Route) getIntent().getSerializableExtra(ArcClimbingConst.SELECTED_ROUTE);
+
+            if (route == null) {
+                finish();
+                return;
+            }
+
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle(route.getName());
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+
             popDetails();
         }
 
@@ -61,6 +74,16 @@ public class EditRouteActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void popDetails() {
         binding.editRouteName.setText(route.getName());
         binding.editBarNumberVal.setText(route.getBarNumber());
@@ -69,7 +92,9 @@ public class EditRouteActivity extends AppCompatActivity {
         binding.editRouteSetterName.setText(route.getSetter());
         binding.editRouteStatusVal.setText(route.getStatus());
         binding.editSetDateVal.setText(route.getSetDate());
-        binding.editRemovedDateVal.setText(route.getRemovedDate());
+        if (route.getRemovedDate() != null) {
+            binding.editRemovedDateVal.setText(route.getRemovedDate());
+        }
     }
 }
 

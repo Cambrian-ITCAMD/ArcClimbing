@@ -17,4 +17,13 @@
     <string name="setDate">Set Date</string>
     <string name="gradeVal">Route\'s Grade</string>
     <string name="barNumber">Bar No.</string>
+
+    <string-array name="status">
+        <item>Route Creation</item>
+        <item>Forerunning</item>
+        <item>Tweaking</item>
+        <item>Active</item>
+        <item>Flagged</item>
+        <item>Stripped</item>
+    </string-array>
 </resources>

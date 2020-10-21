@@ -30,9 +30,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int RC_SIGN_IN = 1;
-    private static final int LIMIT = 25;
-
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
 
@@ -88,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         query = firestore.collection("routes")
                 .orderBy("barNumber",Query.Direction.DESCENDING)
 //                .whereEqualTo("status","active")
-                .limit(LIMIT);
+                .limit(ArcClimbingConst.LIMIT);
     }
 
     @Override
@@ -136,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == ArcClimbingConst.RC_SIGN_IN) {
             viewModel.setIsSigningIn(false);
 
             if (requestCode != RESULT_OK && shouldStartSignIn()) {
@@ -157,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                 .setIsSmartLockEnabled(false)
                 .build();
 
-        startActivityForResult(intent,RC_SIGN_IN);
+        startActivityForResult(intent,ArcClimbingConst.RC_SIGN_IN);
         viewModel.setIsSigningIn(true);
     }
 }

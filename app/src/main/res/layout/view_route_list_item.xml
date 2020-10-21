@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/sharp_edge"
         android:padding="10dp">
 
         <TextView
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:padding="10dp"
+            android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,6 +34,7 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="@string/bar_number_title"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toStartOf="@id/itemBarNumberVal"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +47,7 @@
             android:layout_marginVertical="10dp"
             android:layout_marginStart="10dp"
             android:padding="10dp"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/itemGrade"
             app:layout_constraintStart_toEndOf="@id/itemBarNumber"
             app:layout_constraintTop_toBottomOf="@id/itemName"
@@ -57,6 +61,7 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="@string/grade"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toStartOf="@+id/itemGradeVal"
             app:layout_constraintStart_toEndOf="@id/itemBarNumberVal"
             app:layout_constraintTop_toBottomOf="@id/itemName" />
@@ -68,6 +73,7 @@
             android:layout_marginVertical="10dp"
             android:layout_marginStart="10dp"
             android:padding="10dp"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/itemGrade"
             app:layout_constraintTop_toBottomOf="@id/itemName"

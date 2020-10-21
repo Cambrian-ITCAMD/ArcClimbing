@@ -1,10 +1,12 @@
 package com.example.arcclimbing;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.arcclimbing.databinding.ActivityRouteDetailsBinding;
@@ -26,13 +28,35 @@ public class RouteDetailsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         route = (Route) getIntent().getSerializableExtra(ArcClimbingConst.SELECTED_ROUTE);
+
+        if (route == null) {
+            finish();
+            return;
+        }
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(route.getName());
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         populateDetails();
         binding.editRoute.setOnClickListener(view -> {
             Intent intent = new Intent(this, EditRouteActivity.class);
             intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, route);
             intent.putExtra(ArcClimbingConst.ACTIVITY, ArcClimbingConst.DETAIL);
             startActivity(intent);
+            finish();
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void populateDetails() {
