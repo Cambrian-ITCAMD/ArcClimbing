@@ -86,7 +86,7 @@ public class EditRouteActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance(Locale.CANADA);
         DatePickerDialog setDate = new DatePickerDialog(this,
                 (view, year, month, dayOfMonth) -> {
-                    String date = dayOfMonth + "/" + month + "/" + year;
+                    String date = dayOfMonth + "/" + (month + 1) + "/" + year;
                     if (string.equals(ArcClimbingConst.SET_DATE)) {
                         binding.editSetDateVal.setText(date);
                     } else {
