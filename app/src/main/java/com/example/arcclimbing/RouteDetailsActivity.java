@@ -40,7 +40,7 @@ public class RouteDetailsActivity extends AppCompatActivity {
         }
 
         populateDetails();
-        binding.editRoute.setOnClickListener(view -> {
+        binding.editRoute.setOnClickListener(v -> {
             Intent intent = new Intent(this, EditRouteActivity.class);
             intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, route);
             intent.putExtra(ArcClimbingConst.ACTIVITY, ArcClimbingConst.DETAIL);
