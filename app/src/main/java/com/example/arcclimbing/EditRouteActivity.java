@@ -34,7 +34,12 @@ public class EditRouteActivity extends AppCompatActivity {
 
         String msg = getIntent().getStringExtra(ArcClimbingConst.ACTIVITY);
 
-        if (msg.equals(ArcClimbingConst.DETAIL)) {
+        if (msg.equals(ArcClimbingConst.MAIN)) {
+
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+        } else {
             route = (Route) getIntent().getSerializableExtra(ArcClimbingConst.SELECTED_ROUTE);
 
             if (route == null) {
@@ -85,7 +90,7 @@ public class EditRouteActivity extends AppCompatActivity {
     }
 
     private void showDatePickerDialog(String string) {
-        Calendar calendar = Calendar.getInstance(Locale.CANADA);
+        Calendar calendar = Calendar.getInstance();
         DatePickerDialog setDate = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.set(year, month, dayOfMonth);

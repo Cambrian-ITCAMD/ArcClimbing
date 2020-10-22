@@ -2,7 +2,11 @@ package com.example.arcclimbing;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -20,6 +24,7 @@ import com.example.arcclimbing.utils.ArcClimbingConst;
 import com.example.arcclimbing.viewmodel.MainActivityViewModel;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -28,7 +33,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
@@ -42,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        setSupportActionBar(binding.toolbar.getRoot());
+
+        binding.navView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, binding.drawerLayout, binding.toolbar.getRoot(),
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        binding.drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         // View model
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
@@ -61,6 +75,15 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(ArcClimbingConst.ACTIVITY, ArcClimbingConst.MAIN);
             startActivity(intent);
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void setUpRecyclerView() {
@@ -112,25 +135,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_user_profile:
-                break;
-            case R.id.menu_sign_out:
-                AuthUI.getInstance().signOut(this);
-                startSignIn();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ArcClimbingConst.RC_SIGN_IN) {
@@ -156,5 +160,24 @@ public class MainActivity extends AppCompatActivity {
 
         startActivityForResult(intent,ArcClimbingConst.RC_SIGN_IN);
         viewModel.setIsSigningIn(true);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_user_profile:
+                break;
+            case R.id.nav_dark_mode:
+                break;
+            case R.id.nav_about:
+                break;
+            case R.id.nav_sign_out:
+                AuthUI.getInstance().signOut(this);
+                startSignIn();
+                break;
+        }
+
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

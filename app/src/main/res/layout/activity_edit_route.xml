@@ -66,6 +66,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/routeStatus"
+        android:inputType="text"
         android:textSize="@dimen/mediumText"
         android:textColor="@color/colorPrimary"
         android:padding="@dimen/mediumPadding"

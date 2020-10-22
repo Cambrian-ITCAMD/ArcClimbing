@@ -18,5 +18,10 @@
     <string name="gradeVal">Route\'s Grade</string>
     <string name="barNumber">Bar No.</string>
     <string name="routeStatus">Status</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="about">About</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="app_logo">Logo of the App</string>
 
 </resources>
