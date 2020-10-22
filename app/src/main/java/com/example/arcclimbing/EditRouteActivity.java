@@ -16,6 +16,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -84,9 +86,11 @@ public class EditRouteActivity extends AppCompatActivity {
 
     private void showDatePickerDialog(String string) {
         Calendar calendar = Calendar.getInstance(Locale.CANADA);
-        DatePickerDialog setDate = new DatePickerDialog(this,
-                (view, year, month, dayOfMonth) -> {
-                    String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+        DatePickerDialog setDate = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+            Calendar selectedDate = Calendar.getInstance();
+            selectedDate.set(year, month, dayOfMonth);
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+                    String date = dateFormat.format(selectedDate.getTime());
                     if (string.equals(ArcClimbingConst.SET_DATE)) {
                         binding.editSetDateVal.setText(date);
                     } else {
