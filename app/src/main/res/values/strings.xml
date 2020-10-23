@@ -23,5 +23,8 @@
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="app_logo">Logo of the App</string>
+    <string name="name">Name:</string>
+    <string name="email">Email:</string>
+    <string name="user_id">User ID:</string>
 
 </resources>

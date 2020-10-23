@@ -166,6 +166,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_user_profile:
+                Intent intent = new Intent(this, ProfileActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_dark_mode:
                 break;
