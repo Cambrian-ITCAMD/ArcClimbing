@@ -28,84 +28,121 @@
             tools:text="TextView" />
 
         <TextView
-            android:id="@+id/itemStatus"
+            android:id="@+id/itemBarNumberTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/bar_number_title"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@id/itemColour"
+            app:layout_constraintEnd_toStartOf="@id/itemBarNumber"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemName"
-            tools:text="TextView" />
-
-        <TextView
-            android:id="@+id/itemColour"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:layout_marginStart="10dp"
-            android:padding="10dp"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/itemStatus"
-            app:layout_constraintTop_toBottomOf="@id/itemName"
-            tools:text="TextView" />
+            app:layout_constraintTop_toBottomOf="@id/itemName" />
 
         <TextView
             android:id="@+id/itemBarNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="@string/bar_number_title"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintEnd_toStartOf="@id/itemBarNumberVal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemStatus" />
-
-        <TextView
-            android:id="@+id/itemBarNumberVal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
             android:layout_marginStart="10dp"
             android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@+id/itemGrade"
+            app:layout_constraintEnd_toStartOf="@+id/itemStatusTitle"
+            app:layout_constraintStart_toEndOf="@id/itemBarNumberTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemName"
+            tools:text="10"/>
+
+        <TextView
+            android:id="@+id/itemStatusTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/status"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/itemStatus"
             app:layout_constraintStart_toEndOf="@id/itemBarNumber"
-            app:layout_constraintTop_toBottomOf="@id/itemStatus"
+            app:layout_constraintTop_toBottomOf="@id/itemName" />
+
+        <TextView
+            android:id="@+id/itemStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".28"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemStatusTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemName"
             tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/itemGradeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/grade"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/itemGrade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemBarNumberTitle" />
 
         <TextView
             android:id="@+id/itemGrade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
             android:padding="10dp"
-            android:text="@string/grade"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintEnd_toStartOf="@+id/itemGradeVal"
-            app:layout_constraintStart_toEndOf="@id/itemBarNumberVal"
-            app:layout_constraintTop_toBottomOf="@id/itemColour" />
+            app:layout_constraintHorizontal_weight=".24"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/itemColourTitle"
+            app:layout_constraintStart_toEndOf="@id/itemGradeTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemBarNumber"
+            tools:text="5.7" />
 
         <TextView
-            android:id="@+id/itemGradeVal"
+            android:id="@+id/itemColourTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/colour"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/itemColour"
+            app:layout_constraintStart_toEndOf="@id/itemGrade"
+            app:layout_constraintTop_toBottomOf="@id/itemStatusTitle" />
+
+        <TextView
+            android:id="@+id/itemColour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".28"
             android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/itemGrade"
-            app:layout_constraintTop_toBottomOf="@id/itemColour"
+            app:layout_constraintStart_toEndOf="@id/itemColourTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemStatus"
             tools:text="TextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
+
+
+
 
 
 

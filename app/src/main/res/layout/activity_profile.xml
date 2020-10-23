@@ -17,34 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/uIdTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/user_id"
-        android:padding="10dp"
-        app:layout_constraintHorizontal_weight=".25"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/uId"/>
-
-    <TextView
-        android:id="@+id/uId"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintHorizontal_weight=".75"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/uIdTitle"/>
-
-    <TextView
         android:id="@+id/nameTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/name"
         android:padding="10dp"
         app:layout_constraintHorizontal_weight=".25"
-        app:layout_constraintTop_toBottomOf="@+id/uIdTitle"
+        app:layout_constraintTop_toBottomOf="@+id/profilePic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/userName"/>
 
@@ -54,7 +33,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         app:layout_constraintHorizontal_weight=".75"
-        app:layout_constraintTop_toBottomOf="@+id/uId"
+        app:layout_constraintTop_toBottomOf="@id/profilePic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nameTitle"/>
 

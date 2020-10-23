@@ -47,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void fetchUserData() {
-        binding.uId.setText(auth.getCurrentUser().getUid());
         binding.userName.setText(auth.getCurrentUser().getDisplayName());
         binding.userEmail.setText(auth.getCurrentUser().getEmail());
     }
