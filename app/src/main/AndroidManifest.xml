@@ -8,13 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity"></activity>
+        android:theme="@style/FirebaseUI">
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".EditRouteActivity" />
         <activity android:name=".RouteDetailsActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/FirebaseUI.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

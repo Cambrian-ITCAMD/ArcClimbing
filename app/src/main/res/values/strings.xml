@@ -26,5 +26,8 @@
     <string name="name">Name:</string>
     <string name="email">Email:</string>
     <string name="user_id">User ID:</string>
+    <string name="day">Day Mode</string>
+    <string name="toggle">Toggle Theme</string>
+    <string name="add">Add</string>
 
 </resources>

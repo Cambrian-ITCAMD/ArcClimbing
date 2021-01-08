@@ -4,17 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.arcclimbing.adapter.RouteAdapter;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseFirestore firestore;
     private Query query;
     private RouteAdapter adapter;
+
+    private Boolean isNightMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,9 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .build();
 
         adapter = new RouteAdapter(options, route -> {
-//            Toast.makeText(this, "I want to climb " + route.getDocumentId(),
-//                    Toast.LENGTH_SHORT).show();
-
             Intent intent = new Intent(this, RouteDetailsActivity.class);
             intent.putExtra(ArcClimbingConst.SELECTED_ROUTE, route);
             startActivity(intent);
@@ -163,6 +166,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.themes_menu, menu);
+            if (isNightMode && menu.findItem(R.id.toggleTheme) != null) {
+                MenuItem toggle = menu.findItem(R.id.toggleTheme);
+                toggle.setIcon(R.drawable.ic_day);
+                toggle.setTitle(R.string.day);
+            }
+//            menu.getItem(R.id.toggleTheme).setIcon(R.drawable.ic_day);
+//            menu.getItem(R.id.toggleTheme).setTitle(R.string.day);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.toggleTheme) {
+            viewModel.toggle(isNightMode);
+            isNightMode = !isNightMode;
+            invalidateOptionsMenu();
+        }
+            return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_user_profile:
@@ -170,6 +197,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_dark_mode:
+//                viewModel.toggle(item, isNightMode);
+//                isNightMode = !isNightMode;
                 break;
             case R.id.nav_about:
                 break;

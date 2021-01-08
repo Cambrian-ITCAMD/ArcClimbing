@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#EC630f</color>
-    <color name="colorPrimaryDark">#BD5313</color>
-    <color name="colorAccent">#FA9D64</color>
-    <color name="arcBlack">#313131</color>
+
+    <color name="arc_orange">#ec630f</color>
+    <color name="arc_orange_light">#ff9444</color>
+    <color name="arc_orange_dark">#b23200</color>
+    <color name="deep_orange_50">#fbe9e7</color>
+    <color name="dark_grey">#121212</color>
+    <color name="light_grey">#383838</color>
+    <color name="arc_grey">#313131</color>
+
+    <color name="arc_grey_light">#5a5a5a</color>
+    <color name="arc_grey_dark">#080808</color>
+    <color name="arc_grey_200">#f3f3f3</color>
+    <color name="arc_grey_50">#fdfdfd</color>
+
+    <color name="black">#000</color>
+    <color name="white">#FFF</color>
 </resources>
