@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/itemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/itemBarNumberTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/bar_number_title"
+            app:layout_constraintEnd_toStartOf="@id/itemBarNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemName" />
+
+        <TextView
+            android:id="@+id/itemBarNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            app:layout_constraintEnd_toStartOf="@+id/itemStatusTitle"
+            app:layout_constraintStart_toEndOf="@id/itemBarNumberTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemName"
+            tools:text="10"/>
+
+        <TextView
+            android:id="@+id/itemStatusTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/status"
+            app:layout_constraintEnd_toStartOf="@id/itemStatus"
+            app:layout_constraintStart_toEndOf="@id/itemBarNumber"
+            app:layout_constraintTop_toBottomOf="@id/itemName" />
+
+        <TextView
+            android:id="@+id/itemStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemStatusTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemName"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/itemGradeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/grade"
+            app:layout_constraintEnd_toStartOf="@id/itemGrade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemBarNumberTitle" />
+
+        <TextView
+            android:id="@+id/itemGrade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            app:layout_constraintEnd_toStartOf="@id/itemColourTitle"
+            app:layout_constraintStart_toEndOf="@id/itemGradeTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemBarNumber"
+            tools:text="5.7" />
+
+        <TextView
+            android:id="@+id/itemColourTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".24"
+            android:text="@string/colour"
+            app:layout_constraintEnd_toStartOf="@id/itemColour"
+            app:layout_constraintStart_toEndOf="@id/itemGrade"
+            app:layout_constraintTop_toBottomOf="@id/itemStatusTitle" />
+
+        <TextView
+            android:id="@+id/itemColour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            app:layout_constraintHorizontal_weight=".28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemColourTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemStatus"
+            tools:text="TextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
