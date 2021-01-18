@@ -1,16 +1,13 @@
-package com.example.arcclimbing.adapter;
+package ca.arcclimbing.forerunner.adapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import ca.arcclimbing.forerunner.model.Route;
 
-import com.example.arcclimbing.R;
-import com.example.arcclimbing.databinding.ViewRouteListItemBinding;
-import com.example.arcclimbing.model.Route;
+import ca.arcclimbing.forerunner.databinding.ViewRouteListItemBinding;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 

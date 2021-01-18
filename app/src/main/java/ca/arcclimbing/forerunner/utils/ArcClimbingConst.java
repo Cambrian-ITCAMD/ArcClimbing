@@ -1,4 +1,4 @@
-package com.example.arcclimbing.utils;
+package ca.arcclimbing.forerunner.utils;
 
 public class ArcClimbingConst {
 

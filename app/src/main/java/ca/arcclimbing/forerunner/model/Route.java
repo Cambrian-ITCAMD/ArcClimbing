@@ -1,4 +1,4 @@
-package com.example.arcclimbing.model;
+package ca.arcclimbing.forerunner.model;
 
 import com.google.firebase.firestore.Exclude;
 

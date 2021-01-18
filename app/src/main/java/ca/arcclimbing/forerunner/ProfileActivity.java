@@ -1,4 +1,4 @@
-package com.example.arcclimbing;
+package ca.arcclimbing.forerunner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.arcclimbing.databinding.ActivityProfileBinding;
+import ca.arcclimbing.forerunner.databinding.ActivityProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUserMetadata;
 
 public class ProfileActivity extends AppCompatActivity {
 

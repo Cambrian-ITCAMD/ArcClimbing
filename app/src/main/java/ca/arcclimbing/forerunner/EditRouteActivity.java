@@ -1,25 +1,22 @@
-package com.example.arcclimbing;
+package ca.arcclimbing.forerunner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import ca.arcclimbing.forerunner.model.Route;
+import ca.arcclimbing.forerunner.utils.ArcClimbingConst;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
-import com.example.arcclimbing.databinding.ActivityEditRouteBinding;
-import com.example.arcclimbing.model.Route;
-import com.example.arcclimbing.utils.ArcClimbingConst;
+import ca.arcclimbing.forerunner.databinding.ActivityEditRouteBinding;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class EditRouteActivity extends AppCompatActivity {
 

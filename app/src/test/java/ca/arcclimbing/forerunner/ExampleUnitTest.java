@@ -1,4 +1,4 @@
-package com.example.arcclimbing;
+package ca.arcclimbing.forerunner;
 
 import org.junit.Test;
 

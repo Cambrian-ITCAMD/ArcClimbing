@@ -1,11 +1,7 @@
-package com.example.arcclimbing.viewmodel;
-
-import android.view.MenuItem;
+package ca.arcclimbing.forerunner.viewmodel;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModel;
-
-import com.example.arcclimbing.R;
 
 public class MainActivityViewModel extends ViewModel {
 

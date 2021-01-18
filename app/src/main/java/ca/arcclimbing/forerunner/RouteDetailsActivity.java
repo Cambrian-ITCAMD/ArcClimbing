@@ -1,20 +1,15 @@
-package com.example.arcclimbing;
+package ca.arcclimbing.forerunner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import ca.arcclimbing.forerunner.model.Route;
+import ca.arcclimbing.forerunner.utils.ArcClimbingConst;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.arcclimbing.databinding.ActivityRouteDetailsBinding;
-import com.example.arcclimbing.model.Route;
-import com.example.arcclimbing.utils.ArcClimbingConst;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
+import ca.arcclimbing.forerunner.databinding.ActivityRouteDetailsBinding;
 
 public class RouteDetailsActivity extends AppCompatActivity {
 

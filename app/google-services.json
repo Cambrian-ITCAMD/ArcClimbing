@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:97128797241:android:b4eb48fadd0ce38567e9e8",
         "android_client_info": {
-          "package_name": "com.example.arcclimbing"
+          "package_name": "ca.arcclimbing.forerunner"
         }
       },
       "oauth_client": [
