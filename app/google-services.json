@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "801243245613",
-    "firebase_url": "https://arc-climbing-ee10e.firebaseio.com",
-    "project_id": "arc-climbing-ee10e",
-    "storage_bucket": "arc-climbing-ee10e.appspot.com"
+    "project_number": "97128797241",
+    "project_id": "arc-forerunner",
+    "storage_bucket": "arc-forerunner.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:801243245613:android:dbe72c5cea1b8ab7bddca4",
+        "mobilesdk_app_id": "1:97128797241:android:b4eb48fadd0ce38567e9e8",
         "android_client_info": {
           "package_name": "com.example.arcclimbing"
         }
       },
       "oauth_client": [
         {
-          "client_id": "801243245613-pki24mnrnl8a5kguq7neintio13f01oh.apps.googleusercontent.com",
+          "client_id": "97128797241-0cs0u8u5ci74oe05sus10ie49uqnbf0n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC5_u3Uvy8FKqfPaKvJvHu_ueO4Ha3n8qA"
+          "current_key": "AIzaSyBhm0Gc9NIp07T-9YN0f_AOGZgjkgcyGVQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "801243245613-pki24mnrnl8a5kguq7neintio13f01oh.apps.googleusercontent.com",
+              "client_id": "97128797241-0cs0u8u5ci74oe05sus10ie49uqnbf0n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
